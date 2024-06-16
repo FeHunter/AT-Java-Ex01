@@ -29,19 +29,6 @@ public class Main {
             }
         }
 
-        static void encontrarValorNoVetor (double[] numeros){
-            Scanner sc = new Scanner(System.in);
-            System.out.println("\nDigite um número para ser verificado no vetor: ");
-            double valor = sc.nextDouble();
-            int encontrado = 0;
-            for (int i=0; i < numeros.length; i++){
-                if (valor == numeros[i]){
-                    encontrado ++;
-                }
-            }
-            System.out.println("O número " + valor + " foi encontrado " + encontrado + " vezes no vetor.");
-        }
-
         // Encontrar número no vetor
         encontrarValorNoVetor(numeros);
 
@@ -52,6 +39,19 @@ public class Main {
         // Mostra numeros iguais ou maior que média
         maiorOuIgualMedia(numeros, media);
 
+    }
+
+    static void encontrarValorNoVetor (double[] numeros){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("\nDigite um número para ser verificado no vetor: ");
+        double valor = sc.nextDouble();
+        int encontrado = 0;
+        for (int i=0; i < numeros.length; i++){
+            if (valor == numeros[i]){
+                encontrado ++;
+            }
+        }
+        System.out.println("O número " + valor + " foi encontrado " + encontrado + " vezes no vetor.");
     }
 
     static double calcularMedia (double[] numeros){
