@@ -33,7 +33,7 @@ public class Main {
         System.out.println("\nA média é " + media);
 
         // Mostra numeros iguais ou maior que média
-        maiorOuIgualMedia(numeros, media);
+        maiorOuIgualMedia(numeros, media, contador);
 
     }
 
@@ -62,15 +62,15 @@ public class Main {
     static double calcularMedia (double[] numeros, int contagem){
         double media = 0;
         double somaDosNumeros = 0;
-        for (int i=0; i < numeros.length; i++){
+        for (int i=0; i < contagem; i++){
             somaDosNumeros += numeros[i];
         }
         media = somaDosNumeros / contagem; // alterar para tamanho de números digitados
         return media;
     }
 
-    static void maiorOuIgualMedia (double[] numeros, double media){
-        for (int i=0; i < numeros.length; i++){
+    static void maiorOuIgualMedia (double[] numeros, double media, int contagem){
+        for (int i=0; i < contagem; i++){
             if (numeros[i] >= media){
                 System.out.println("Valor maior ou igual a média: " + numeros[i]);
             }
