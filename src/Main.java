@@ -12,6 +12,10 @@ public class Main {
             // Ler número
             double n = lerValorDouble("Digite um numero: ","valor invalido");
 
+            // Adiconar o número a array
+            numeros[contador] = n;
+            contador ++;
+
             // Finalizar o programa ao atingir limite
             run = finalizarProgramaPorLimite(contador, numeros.length);
 
@@ -19,10 +23,6 @@ public class Main {
             if (n == 0){
                 run = false;
             }
-
-            // Adiconar o número a array
-            numeros[contador] = n;
-            contador ++;
         }
 
         // Encontrar número no vetor
@@ -38,7 +38,7 @@ public class Main {
     }
 
     static boolean finalizarProgramaPorLimite (int contador, int max){
-        if (contador >= max){
+        if (contador == max){
             System.out.println("Valor maximo de números atingido, finalizando a inserção");
             return false;
         }else {
