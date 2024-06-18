@@ -18,8 +18,6 @@ public class Main {
         // Mostra numeros iguais ou maior que média
         maiorOuIgualMedia(numeros, media, contador[0]);
 
-        System.out.println("Contador " + contador[0]);
-
     }
 
     static double[] lerNumeros (double[]numeros, int[] contador){
