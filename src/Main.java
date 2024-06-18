@@ -3,38 +3,45 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        boolean run = true;
         double[] numeros = new double[10];
-        int contador = 0;
+        int[] contador = new int[1];
 
         // Ler números e adiconar no vetor
+        numeros = lerNumeros(numeros, contador);
+
+        // Encontrar número no vetor
+        encontrarValorNoVetor(numeros, contador[0]);
+
+        // Calcular média
+        double media = calcularMedia(numeros, contador[0]);
+
+        // Mostra numeros iguais ou maior que média
+        maiorOuIgualMedia(numeros, media, contador[0]);
+
+        System.out.println("Contador " + contador[0]);
+
+    }
+
+    static double[] lerNumeros (double[]numeros, int[] contador){
+        boolean run = true;
         while (run){
             // Ler número
             double n = lerValorDouble("Digite um numero: ","valor invalido");
 
-            // Adiconar o número a array
-            numeros[contador] = n;
-            contador ++;
-
-            // Finalizar o programa ao atingir limite
-            run = finalizarProgramaPorLimite(contador, numeros.length);
-
             // Finaliar com zero
             if (n == 0){
-                run = false;
+                break;
             }
+
+            // Adiconar o número a array
+            numeros[contador[0]] = n;
+            contador[0] ++;
+
+            // Finalizar o programa ao atingir limite
+            run = finalizarProgramaPorLimite(contador[0], numeros.length);
+
         }
-
-        // Encontrar número no vetor
-        encontrarValorNoVetor(numeros, contador);
-
-        // Calcular média
-        double media = calcularMedia(numeros, contador);
-        System.out.println("\nA média é " + media);
-
-        // Mostra numeros iguais ou maior que média
-        maiorOuIgualMedia(numeros, media, contador);
-
+        return numeros;
     }
 
     static boolean finalizarProgramaPorLimite (int contador, int max){
@@ -51,7 +58,7 @@ public class Main {
         System.out.println("\nDigite um número para ser verificado no vetor: ");
         double valor = sc.nextDouble();
         int encontrado = 0;
-        for (int i=0; i < contagem; i++){ // alterar para tamanho de números digitados
+        for (int i=0; i < contagem; i++){
             if (valor == numeros[i]){
                 encontrado ++;
             }
@@ -65,7 +72,8 @@ public class Main {
         for (int i=0; i < contagem; i++){
             somaDosNumeros += numeros[i];
         }
-        media = somaDosNumeros / contagem; // alterar para tamanho de números digitados
+        media = somaDosNumeros / contagem;
+        System.out.println("\nA média é " + media);
         return media;
     }
 
